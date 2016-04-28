@@ -1,3 +1,6 @@
+//range takes start/end arguments
+//increases by "step" or 1 (step optional) returns array
+//arrayToSum sums all numbers in array
 function range(start, end, step){
    if (step == null){ // don't use === will fail
      step = 1;

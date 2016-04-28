@@ -9,7 +9,7 @@ function countChar(word, letter){
 }
 
 function countBs(string){
-   return countChar(string, "B");
+   return countChar(string, "B");  
 }
 console.log(countBs("BieBer"));
 //2

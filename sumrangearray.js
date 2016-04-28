@@ -1,5 +1,5 @@
 //range function takes 2 arguments start and end
-//return array of numbers start-end (inclusive)
+//return array of numbers start-end (inclusive) increasing by 2
 //sum function sums values in array
 
 function range(start, end){

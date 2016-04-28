@@ -1,23 +1,20 @@
-//range function takes 2 arguments start and end
-//return array of numbers start-end (inclusive) increasing by 2
-//sum function sums values in array
-
-function range(start, end){
-   var rangeArray = [];
-   var counter = start;
-   for(var i = start; i <= end; i++ ){
-     if (start <= end){
-     rangeArray.push(start);
-     start += 2;     
-     }
-     else{
-          return rangeArray;
-     }
+function range(start, end, step){
+   if (step == null){ // don't use === will fail
+     step = 1;
    }
+   var rangeArray = [];
+   if(step > 0) {
+     for(var i = start; i<=end; i += step){  
+       rangeArray.push(i);
+     } 
+   }
+  else {
+    for(var j = start; j>=end; j += step){
+      rangeArray.push(j);
+    }
+  }
+  return rangeArray;
 }
-
-console.log(range(4, 10));
-//[4, 6, 8, 10]
 
 function sum(arrayToSum){
   var counter = 0;
@@ -29,3 +26,7 @@ function sum(arrayToSum){
 
 console.log(sum(range(1, 10)));
 //25
+console.log(range(5, 2, -1));
+//[5, 4, 3, 2]
+console.log(range(1, 10));
+//[5, 4, 3, 2]

@@ -1,11 +1,13 @@
 function compare(one, two) {
   for (var prop in one) {
-    if (!(prop in two)) {
+    if (prop in two) {
+      return true;
+    }
+    else{
       return false;
     }
   }
 }
-
 function compareProps(one, two) {
   var counter = 0;
   for (var prop in one) {
@@ -22,8 +24,7 @@ var fishSammy = {
 };
 
 var fishSally = {
-  furry: false,
-  scales: "pink",
+  skin: "pink",
   vegetarian: true
 };
 
@@ -32,5 +33,5 @@ console.log(compare(fishSammy, fishSally));
 console.log(compareProps(fishSammy, fishSally));
 //how many properties in the objects have the same value?
 
-//false
+//true
 //2

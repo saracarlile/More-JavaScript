@@ -8,12 +8,7 @@ function reverseArray(someArray){
 }
 
 
-function reverseArrayInPlace(someArray){
-   console.log(reverseArray(someArray)); 
-}
 
 console.log(reverseArray(letters));
 //["C", "B", "A"]
-var arrayValue = [1, 2, 3, 4, 5];
-reverseArrayInPlace(arrayValue);
-//[5, 4, 3, 2, 1]
+

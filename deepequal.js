@@ -1,5 +1,3 @@
-
-
 function deepEqual(oneThing, twoThing) {
   if (oneThing === twoThing) return true;
 

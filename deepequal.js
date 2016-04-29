@@ -27,6 +27,7 @@ var fishSally = {
 };
 console.log(deepEqual(fishSammy, fishSally));
 console.log(deepEqual("string", fishSally));
-
+console.log(deepEqual("abc", "abc"));
 //true
 //false
+//true

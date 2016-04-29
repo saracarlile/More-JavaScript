@@ -22,6 +22,7 @@ var fishSammy = {
 };
 
 var fishSally = {
+  furry: false,
   scales: "pink",
   vegetarian: true
 };
@@ -29,7 +30,7 @@ var fishSally = {
 console.log(compare(fishSammy, fishSally));
 //do two objects have the same properties?
 console.log(compareProps(fishSammy, fishSally));
-//how many properties in the objects are the same?
+//how many properties in the objects have the same value?
 
 //false
 //2

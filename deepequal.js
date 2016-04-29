@@ -1,5 +1,5 @@
 var fishSammy = {
-  scales: "blue",
+  scales: "pink",
   vegetarian: true
 };
 
@@ -8,21 +8,14 @@ var fishSally = {
   vegetarian: true
 };
 
-function deepEqual(oneObject, twoObject) {
-  if (oneObject === null || twoObject === null) {
-    return false;
-  }
-  else if (oneObject === twoObject) {
-    return true;
-  }
-  else if (typeof oneObject === 'object' && typeof twoObject === 'object') {
-   return true;
-    
-
-
-  }
-  else {
-    return false;
-  }
+function deepEqual(oneThing, twoThing) {
+  if (oneThing === twoThing) return true;
+  
+  if (oneThing === null || twoThing === null || typeof oneThing != 'object' || typeof twoThing != 'object') return false;
+  
+  var props1 = 0, props2 = 0;
+  
+  
 }
 console.log(deepEqual(fishSammy, fishSally));
+console.log(deepEqual("string", fishSally));

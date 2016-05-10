@@ -46,7 +46,7 @@ var byName = {};
 ancestry.forEach(function(person) {
   byName[person.name] = person;
 });
-//mapping array to object 
+///build up an object byName that associates names with people
 console.log(byName["Carel Haverbeke"]);
 //example of how to access the byName object to work with data
 

@@ -46,7 +46,9 @@ var byName = {};
 ancestry.forEach(function(person) {
   byName[person.name] = person;
 });
+//mapping array to object 
 console.log(byName["Carel Haverbeke"]);
+//example of how to access the byName object to work with data
 
 var hasKnownMother = ancestry.filter(function(person){
     return byName[person.mother] != null;

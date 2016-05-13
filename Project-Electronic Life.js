@@ -1,32 +1,41 @@
 // http://www.mathopenref.com/coordsquare.html
 //http://www.coolmath.com/reference/rectangles
+var plan = ["############################",
+            "#      #    #      o      ##",
+            "#                          #",
+            "#          #####           #",
+            "##         #   #    ##     #",
+            "###           ##     #     #",
+            "#           ###      #     #",
+            "#   ####                   #",
+            "#   ##       o             #",
+            "# o  #         o       ### #",
+            "#    #                     #",
+            "############################"];
+
 function Vector(x, y) {
   this.x = x;
   this.y = y;
 }
+Vector.prototype.plus = function(other) {
+  return new Vector(this.x + other.x, this.y + other.y);
+};
 
 function Grid(width, height) {
   this.space = new Array(width * height);
   this.width = width;
   this.height = height;
 }
-
 Grid.prototype.isInside = function(vector) {
   return vector.x >= 0 && vector.x < this.width &&
          vector.y >= 0 && vector.y < this.height;
 };
 Grid.prototype.get = function(vector) {
-  return console.log(this.space[vector.x + this.width * vector.y]);
+  return this.space[vector.x + this.width * vector.y];
 };
 Grid.prototype.set = function(vector, value) {
   this.space[vector.x + this.width * vector.y] = value;
-}; 
-//testing
-//var something = new Grid(4,5);
-//console.log(something.space);
-//var vector = new Vector(2, 2);
-//something.set(vector, "x");
-//console.log(something.space);
+};
 
 var directions = {
   "n":  new Vector( 0, -1),
@@ -47,7 +56,7 @@ var directionNames = "n ne e se s sw w nw".split(" ");
 
 function BouncingCritter() {
   this.direction = randomElement(directionNames);
-}
+};
 
 BouncingCritter.prototype.act = function(view) {
   if (view.look(this.direction) != " ")
@@ -74,6 +83,7 @@ function World(map, legend) {
                elementFromChar(legend, line[x]));
   });
 }
+
 function charFromElement(element) {
   if (element == null)
     return " ";
@@ -93,21 +103,7 @@ World.prototype.toString = function() {
   return output;
 };
 
-var plan = ["############################",
-            "#      #    #      o      ##",
-            "#                          #",
-            "#          #####           #",
-            "##         #   #    ##     #",
-            "###           ##     #     #",
-            "#           ###      #     #",
-            "#   ####                   #",
-            "#   ##       o             #",
-            "# o  #         o       ### #",
-            "#    #                     #",
-            "############################"];
 function Wall() {}
 
 var world = new World(plan, {"#": Wall,
                              "o": BouncingCritter});
-console.log(world.toString());
-

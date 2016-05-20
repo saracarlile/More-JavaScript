@@ -1,7 +1,8 @@
 //What is a Vector? X and Y coordinates
 //What is a Grid? Grid is a view of a World at that moment
-//What is a World? A world contains a grid, and a legend of walls, critters and empty space characters, and where these elements are at that moment.
+//What is a World? A world contains a grid, and a legend of wall, critter and empty space characters, and where these elements are at that moment.
 //grid.set builds world
+//What is the plan?  An array that builds the grid/world.
 
 var plan = ["############################",
             "#      #    #      o      ##",
@@ -59,7 +60,7 @@ var directionNames = "n ne e se s sw w nw".split(" ");
 
 function BouncingCritter() {
   this.direction = randomElement(directionNames);
-};
+}
 
 BouncingCritter.prototype.act = function(view) {
   if (view.look(this.direction) != " ")

@@ -4,7 +4,7 @@
 //and use plain JavaScript, without any module loader system.
 
 var month = function(){
-    var names = ["January", "February", "March", "April", "June", "July",
+    var names = ["January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December"];
     
     return {
@@ -14,6 +14,6 @@ var month = function(){
 }();
 
 console.log(month.name(2));
-//"March"
+// → March
 console.log(month.number("November"));
-//9
+// → 10

@@ -48,6 +48,16 @@
     var body = document.getElementsByTagName("body")[0];
     var tbl     = document.createElement("table");
     var tblBody = document.createElement("tbody");
+     var tbHead = document.createElement("thead");
+    var row1 = document.createElement("tr");
+    var  th1 = document.createElement("th"); 
+    var  th2 = document.createElement("th"); 
+    var  th3 = document.createElement("th"); 
+    row1.appendChild(th1);
+    row1.appendChild(th2);
+    row1.appendChild(th3);
+    tbHead.appendChild(row1);
+    tbl.appendChild(tbHead);
     // creating all cells
   for (var i = 0; i < data.length; i++) {
     // creates a table row
@@ -70,6 +80,7 @@
     }  
     // put the <tbody> in the <table>
   tbl.appendChild(tblBody);
+  
   // appends <table> into <body>
   body.appendChild(tbl);
   // sets the border attribute of tbl to 2;

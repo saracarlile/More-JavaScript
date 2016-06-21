@@ -25,15 +25,6 @@
 <body>
 
 
-
-
-
-
-
-
-
-
-
     <script>
         var MOUNTAINS = [
   {name: "Kilimanjaro", height: 5895, country: "Tanzania"},
@@ -45,51 +36,45 @@
   {name: "Popocatepetl", height: 5465, country: "Mexico"}
 ];
   function buildTable(data) {
-    var body = document.getElementsByTagName("body")[0];
-    var tbl     = document.createElement("table");
+    var table = document.createElement("table");
+    var fields = Object.keys(data[0]);
+    var row1Head = document.createElement("tr");
+    fields.forEach(function(field){
+         var thHeadCell = document.createElement("th"); 
+         thHeadCell.textContent = field;
+         row1Head.appendChild(thHeadCell);
+    });
+    
+    var tbHead = document.createElement("thead");
+    tbHead.appendChild(row1Head);
+    table.appendChild(tbHead);
     var tblBody = document.createElement("tbody");
-     var tbHead = document.createElement("thead");
-    var row1 = document.createElement("tr");
-    var  th1 = document.createElement("th"); 
-    var  th2 = document.createElement("th"); 
-    var  th3 = document.createElement("th"); 
-    row1.appendChild(th1);
-    row1.appendChild(th2);
-    row1.appendChild(th3);
-    tbHead.appendChild(row1);
-    tbl.appendChild(tbHead);
-    // creating all cells
-  for (var i = 0; i < data.length; i++) {
-    // creates a table row
-    var row = document.createElement("tr");
-      
-    for (var attr in data[i]) {
-      // Create a <td> element and a text node, make the text
-      // node the contents of the <td>, and put the <td> at
-      // the end of the table row
-      var cell = document.createElement("td");
-      var textContents = data[attr];
-      var textContents = data[i][attr];
-      var cellText = document.createTextNode(textContents);
-      cell.appendChild(cellText);
-      row.appendChild(cell);
-    }
- 
-    // add the row to the end of the table body
-    tblBody.appendChild(row);
-    }  
-    // put the <tbody> in the <table>
-  tbl.appendChild(tblBody);
-  
-  // appends <table> into <body>
-  body.appendChild(tbl);
-  // sets the border attribute of tbl to 2;
-  //tbl.setAttribute("border", "2");    
+    
+    for (var i = 0; i < data.length; i++) {
+        // creates a table row
+        var row = document.createElement("tr");
+        
+            for (var attr in data[i]) {
+            // create td cell, capture text contents and add to td, then add td to row
+            var cell = document.createElement("td");
+            var textContents = data[i][attr];
+            cell.textContent = textContents;
+            if(typeof data[i][attr] == "number")
+              cell.style.textAlign = "right";
+            row.appendChild(cell);
+            }    
+            // add the row to the end of the table body
+            tblBody.appendChild(row);
+        }  
+    table.appendChild(tblBody);
+    return table;   
   }
 
   document.body.appendChild(buildTable(MOUNTAINS));
     </script>
 
 </body>
+<!-- Remember this technique. You will use it frequently in programming for the W3C DOM. First, you create elements from the top down; then you attach the children to the parents from the bottom up.
+    https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces -->
 
 </html>
